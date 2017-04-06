@@ -27,8 +27,8 @@ $domain = implode('.', $all_hosts);
 
 // Zabbix connection shiz
 $zabbix_url = 'http://zabbix.' . $domain . '/';
-$zabbix_user = 'api';
-$zabbix_pass = '8PwhVelE';
+$zabbix_user = 'ZABBIX_USER_HERE';
+$zabbix_pass = 'ZABBIX_PASS_HERE';
 
 
 // Instantiate the object for the connection
