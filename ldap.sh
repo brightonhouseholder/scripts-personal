@@ -17,10 +17,10 @@ if [[ "$answer" = "y" ]]; then
         echo -e "Please enter the grep search parameters"
         read grepparams
     # Ldap search string with grep parameters
-    ldapsearch -LLL -o ldif-wrap=no -H ldap://ldap.body.local -x -D 'body\'$user'' -W -E pr=1000/noprompt -b 'ou=bbcom,dc=body,dc=local' '(&(objectClass=person) (sAMAccountName='$usersearch'))' SAMAccountName memberOf | grep $grepparams
+    ldapsearch -LLL -o ldif-wrap=no -H ldap://ldap.body.local -x -D 'body\'$user'' -W -E pr=1000/noprompt -b 'ou=companies,dc=body,dc=local' '(&(objectClass=person) (sAMAccountName='$usersearch'))' SAMAccountName memberOf | grep -i $grepparams
 else
     # Ldap search string with no grep parameters
-    ldapsearch -LLL -o ldif-wrap=no -H ldap://ldap.body.local -x -D 'body\'$user'' -W -E pr=1000/noprompt -b 'ou=bbcom,dc=body,dc=local' '(&(objectClass=person) (sAMAccountName='$usersearch'))' SAMAccountName memberOf
+    ldapsearch -LLL -o ldif-wrap=no -H ldap://ldap.body.local -x -D 'body\'$user'' -W -E pr=1000/noprompt -b 'ou=companies,dc=body,dc=local' '(&(objectClass=person) (sAMAccountName='$usersearch'))' SAMAccountName memberOf
 fi
 else
     # Run the script again from the top if the user entered their AD username improperly
